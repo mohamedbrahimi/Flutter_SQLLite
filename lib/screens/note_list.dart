@@ -6,10 +6,11 @@ class NoteList extends StatefulWidget {
     // TODO: implement createState
     return _NoteListState();
   }
-
 }
 
 class _NoteListState extends State<NoteList> {
+  int count = 2;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -18,13 +19,44 @@ class _NoteListState extends State<NoteList> {
         title: Text('Notes'),
       ),
       body: _getNoteListView(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          debugPrint('FloatingActionButton is pressed');
+        },
+        tooltip: 'Add Note',
+        child: Icon(Icons.add),
+      ),
+        
     );
   }
 
-  ListView _getNoteListView(){
+  ListView _getNoteListView() {
     TextStyle titleStyle = Theme.of(context).textTheme.subhead;
 
-    return ListView.builder(itemBuilder: null);
+    return ListView.builder(
+        itemCount: count,
+        itemBuilder: (BuildContext context, int position) {
+          return Card(
+            color: Colors.white,
+            elevation: 2.0,
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Colors.yellow,
+                child: Icon(Icons.keyboard_arrow_right),
+              ),
+              title: Text(
+                'Dummy date',
+                style: titleStyle,
+              ),
+              trailing: Icon(
+                Icons.delete,
+                color: Colors.grey,
+              ),
+              onTap: () {
+                debugPrint('ListTile Tapped');
+              },
+            ),
+          );
+        });
   }
-
 }
