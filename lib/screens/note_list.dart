@@ -9,7 +9,7 @@ class NoteList extends StatefulWidget {
 }
 
 class _NoteListState extends State<NoteList> {
-  int count = 5;
+  int count = 2;
 
   @override
   Widget build(BuildContext context) {
