@@ -18,6 +18,9 @@ class _NoteDetailState extends State<NoteDetail> {
 
   @override
   Widget build(BuildContext context) {
+
+    TextStyle textStyle = Theme.of(context).textTheme.title;
+
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
