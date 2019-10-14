@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/note_list.dart';
+import 'screens/note_detail.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -8,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'NoteKeeper',
-      home: NoteList(),
+      home: NoteDetail(),
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
        //   brightness: Brightness.dark,
