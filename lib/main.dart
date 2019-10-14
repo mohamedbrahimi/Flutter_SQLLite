@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'NoteKeeper',
-      home: NoteList(),
+      home: NoteDetail(),
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
        //   brightness: Brightness.dark,
