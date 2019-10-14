@@ -10,6 +10,12 @@ class NoteDetail extends StatefulWidget {
 }
 
 class _NoteDetailState extends State<NoteDetail> {
+
+  static var _priorities = ['Hight', 'Low'];
+  var _defaultProperty = _priorities[0];
+  TextEditingController titleController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
