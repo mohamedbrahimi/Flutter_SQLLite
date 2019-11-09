@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './note_detail.dart';
 
 class NoteList extends StatefulWidget {
   @override
@@ -22,6 +23,7 @@ class _NoteListState extends State<NoteList> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           debugPrint('FloatingActionButton is pressed');
+          navigateToDetail('Add new item');
         },
         tooltip: 'Add Note',
         child: Icon(Icons.add),
@@ -54,6 +56,7 @@ class _NoteListState extends State<NoteList> {
               ),
               onTap: () {
                 debugPrint('ListTile Tapped');
+                navigateToDetail('Edit item');
               },
             ),
           );
