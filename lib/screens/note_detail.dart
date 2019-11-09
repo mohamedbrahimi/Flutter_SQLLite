@@ -10,10 +10,12 @@ class NoteDetail extends StatefulWidget {
     // TODO: implement createState
     return _NoteDetailState(this.appBarTitle);
   }
-
 }
 
 class _NoteDetailState extends State<NoteDetail> {
+  String appBarTitle;
+
+  _NoteDetailState(this.appBarTitle);
 
   static var _priorities = ['Hight', 'Low'];
   var _defaultProperty = _priorities[0];
