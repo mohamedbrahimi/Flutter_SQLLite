@@ -62,4 +62,12 @@ class _NoteListState extends State<NoteList> {
           );
         });
   }
+
+  void navigateToDetail(String title) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return NoteDetail(title);
+    })
+    );
+  }
+
 }
