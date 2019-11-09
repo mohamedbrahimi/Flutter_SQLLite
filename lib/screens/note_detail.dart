@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
 class NoteDetail extends StatefulWidget {
+  String appBarTitle;
+
+  NoteDetail(this.appBarTitle);
+
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _NoteDetailState();
+    return _NoteDetailState(this.appBarTitle);
   }
 
 }
