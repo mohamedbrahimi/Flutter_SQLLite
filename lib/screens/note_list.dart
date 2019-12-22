@@ -40,7 +40,6 @@ class _NoteListState extends State<NoteList> {
         tooltip: 'Add Note',
         child: Icon(Icons.add),
       ),
-        
     );
   }
 
@@ -55,8 +54,8 @@ class _NoteListState extends State<NoteList> {
             elevation: 2.0,
             child: ListTile(
               leading: CircleAvatar(
-                backgroundColor: Colors.yellow,
-                child: Icon(Icons.keyboard_arrow_right),
+                backgroundColor: getPriorityColor(noteList[position].priority),
+                child: getPriorityIcon(noteList[position].priority),
               ),
               title: Text(
                 'Dummy date',
@@ -118,8 +117,7 @@ class _NoteListState extends State<NoteList> {
   void navigateToDetail(String title) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return NoteDetail(title);
-    })
-    );
+    }));
   }
 
   void updateListView() {
