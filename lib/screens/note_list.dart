@@ -65,6 +65,17 @@ class _NoteListState extends State<NoteList> {
                 Icons.delete,
                 color: Colors.grey,
               ),
+              trailing: GestureDetector(
+                child: Icon(
+                  Icons.delete,
+                  color: Colors.grey,
+                ),
+                onTap: () {
+                  _delete(context, noteList[position]);
+                  updateListView();
+                },
+              ),
+
               onTap: () {
                 debugPrint('ListTile Tapped');
                 navigateToDetail('Edit item');
