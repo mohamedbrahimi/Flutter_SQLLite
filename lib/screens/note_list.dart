@@ -61,9 +61,8 @@ class _NoteListState extends State<NoteList> {
                 'Dummy date',
                 style: titleStyle,
               ),
-              trailing: Icon(
-                Icons.delete,
-                color: Colors.grey,
+              subtitle: Text(
+                  noteList[position].date
               ),
               trailing: GestureDetector(
                 child: Icon(
