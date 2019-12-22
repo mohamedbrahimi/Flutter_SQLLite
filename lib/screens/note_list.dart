@@ -75,6 +75,46 @@ class _NoteListState extends State<NoteList> {
         });
   }
 
+  // Returns the priority color
+  Color getPriorityColor(int priority) {
+    switch (priority) {
+      case 1:
+        return Colors.red;
+        break;
+      case 1:
+        return Colors.yellow;
+        break;
+      default:
+        return Colors.yellow;
+        break;
+    }
+  }
+  // Return the priority icon
+  Icon getPriorityIcon(int priority) {
+    switch (priority) {
+      case 1:
+        return Icon(Icons.play_arrow);
+        break;
+      case 1:
+        return Icon(Icons.keyboard_arrow_right);
+        break;
+      default:
+        return Icon(Icons.keyboard_arrow_right);
+        break;
+    }
+  }
+  // Delete item
+  void _delete(BuildContext context, Note note) async {
+    int result = await databaseHelper.deleteNote(note.id);
+    if (result != 0)
+      _showSnackBar(context, 'Note Deleted Successfully');
+  }
+  // Show Snack Bar Function
+  void _showSnackBar(BuildContext context, String message) {
+    final snackBar = SnackBar(content: Text(message));
+    Scaffold.of(context).showSnackBar(snackBar);
+
+  }
   void navigateToDetail(String title) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return NoteDetail(title);
