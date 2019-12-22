@@ -20,6 +20,12 @@ class _NoteListState extends State<NoteList> {
 
   @override
   Widget build(BuildContext context) {
+
+    if (noteList == null) {
+      noteList = List<Note>();
+      updateListView();
+    }
+
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
