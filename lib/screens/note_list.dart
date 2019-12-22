@@ -58,7 +58,7 @@ class _NoteListState extends State<NoteList> {
                 child: getPriorityIcon(noteList[position].priority),
               ),
               title: Text(
-                'Dummy date',
+                noteList[position].title,
                 style: titleStyle,
               ),
               subtitle: Text(
