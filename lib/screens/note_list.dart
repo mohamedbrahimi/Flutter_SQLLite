@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import './note_detail.dart';
+import 'package:flutter_sqllite/screens/note_detail.dart';
+import 'package:flutter_sqllite/utils/database_helper.dart';
+import 'package:flutter_sqllite/models/note.dart';
+import 'package:sqflite/sqflite.dart';
+import 'dart:async';
 
 class NoteList extends StatefulWidget {
   @override
