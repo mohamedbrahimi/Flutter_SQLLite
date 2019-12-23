@@ -6,7 +6,8 @@ import 'package:sqflite/sqflite.dart';
 import 'dart:async';
 
 class NoteDetail extends StatefulWidget {
-  String appBarTitle;
+  final String appBarTitle;
+  final Note note;
 
   NoteDetail(this.appBarTitle);
 
