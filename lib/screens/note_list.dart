@@ -35,7 +35,7 @@ class _NoteListState extends State<NoteList> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           debugPrint('FloatingActionButton is pressed');
-          navigateToDetail('Add new item');
+          navigateToDetail(Note('', '', 2),'Add new item');
         },
         tooltip: 'Add Note',
         child: Icon(Icons.add),
@@ -77,7 +77,7 @@ class _NoteListState extends State<NoteList> {
 
               onTap: () {
                 debugPrint('ListTile Tapped');
-                navigateToDetail('Edit item');
+                navigateToDetail(noteList[position], 'Edit item');
               },
             ),
           );
@@ -90,7 +90,7 @@ class _NoteListState extends State<NoteList> {
       case 1:
         return Colors.red;
         break;
-      case 1:
+      case 2:
         return Colors.yellow;
         break;
       default:
@@ -104,7 +104,7 @@ class _NoteListState extends State<NoteList> {
       case 1:
         return Icon(Icons.play_arrow);
         break;
-      case 1:
+      case 2:
         return Icon(Icons.keyboard_arrow_right);
         break;
       default:
@@ -124,10 +124,13 @@ class _NoteListState extends State<NoteList> {
     Scaffold.of(context).showSnackBar(snackBar);
 
   }
-  void navigateToDetail(String title) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return NoteDetail(title);
+  void navigateToDetail(Note note,String title) async {
+    bool result = await Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return NoteDetail(note, title);
     }));
+
+    if (result == true)
+      updateListView();
   }
 
   void updateListView() {
