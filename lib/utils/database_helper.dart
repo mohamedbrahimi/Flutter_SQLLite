@@ -48,7 +48,7 @@ class DatabaseHelper {
 
   void _createDb(Database db, int newVersion) async {
 
-    await db.execute('CREATE TABLE $noteTable($colId INTEGER PRIMARY KEY AUTOINCREMTENT, $colTitle TEXT, '
+    await db.execute('CREATE TABLE $noteTable($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colTitle TEXT, '
         '$colDescription TEXT, $colPriority INTEGER, $colDate TEXT'
         ')');
   }
@@ -80,7 +80,7 @@ class DatabaseHelper {
   // Delete Operation: Delete a Note object from database
   Future<int> deleteNote(int id) async {
     var db = await this.database;
-    int result = await db.rawDelete('DELTE FROM $noteTable WHERE $colId = $id');
+    int result = await db.rawDelete('DELETE FROM $noteTable WHERE $colId = $id');
     return result;
   }
 
