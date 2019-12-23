@@ -48,7 +48,7 @@ class DatabaseHelper {
 
   void _createDb(Database db, int newVersion) async {
 
-    await db.execute('CREATE TABLE $noteTable($colId INTEGER PRIMARY KEY AUTOINCREMTENT, $colTitle TEXT, '
+    await db.execute('CREATE TABLE $noteTable($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colTitle TEXT, '
         '$colDescription TEXT, $colPriority INTEGER, $colDate TEXT'
         ')');
   }
@@ -80,7 +80,7 @@ class DatabaseHelper {
   // Delete Operation: Delete a Note object from database
   Future<int> deleteNote(int id) async {
     var db = await this.database;
-    int result = await db.rawDelete('DELTE FROM $noteTable WHERE $colId = $id');
+    int result = await db.rawDelete('DELETE FROM $noteTable WHERE $colId = $id');
     return result;
   }
 
@@ -90,5 +90,20 @@ class DatabaseHelper {
     List<Map<String, dynamic>> x = await db.rawQuery('SELECT COUNT(*) FROM $noteTable');
     int result = Sqflite.firstIntValue(x);
     return result;
+  }
+
+  // Get the 'Map List' [ List<Map> ] and convert it to 'Note List' [ List<Note>]
+  Future<List<Note>> getNoteList() async {
+
+    var noteMapList = await getNoteMapList(); // Get 'Map List' from database
+    int count = noteMapList.length; // Count the number id map entries in db table
+
+    List<Note> noteList = List<Note>();
+    // For loop to create a 'Note List' from a 'Map List'
+    for (int i = 0; i < count; i++) {
+      noteList.add(Note.fromMapObject(noteMapList[i]));
+    }
+
+    return noteList;
   }
 }
