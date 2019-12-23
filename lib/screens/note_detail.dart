@@ -9,12 +9,12 @@ class NoteDetail extends StatefulWidget {
   final String appBarTitle;
   final Note note;
 
-  NoteDetail(this.appBarTitle);
+  NoteDetail(this.note, this.appBarTitle);
 
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _NoteDetailState(this.appBarTitle);
+    return _NoteDetailState(this.note, this.appBarTitle);
   }
 }
 
